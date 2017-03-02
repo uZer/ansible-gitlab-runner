@@ -6,7 +6,6 @@
   changed_when: False
 
 - name: Register runner to GitLab
-  when: not ansible_check_mode
   command: gitlab-runner register >
     --non-interactive
     --url '{{ gitlab_runner_coordinator_url }}'
