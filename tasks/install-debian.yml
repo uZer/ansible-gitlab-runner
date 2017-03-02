@@ -5,14 +5,12 @@
     "dpkg -l gitlab-ci-multi-runner"
   register: deb_check
 
-
 - name: Install GitLab Runner
   when: deb_check.stdout.find('no packages found') != -1
   shell:
     "curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash"
 
 - name: Install GitLab Runner
-  when: deb_check.stdout.find('no packages found') != -1
   apt:
     name: gitlab-ci-multi-runner
     state: latest
