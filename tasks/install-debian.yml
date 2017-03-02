@@ -1,6 +1,7 @@
 ---
 - name: Check if installed
   changed_when: False
+  check_mode: no
   command:
     "dpkg -l gitlab-ci-multi-runner"
   register: deb_check
